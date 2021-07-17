@@ -1,5 +1,7 @@
 package cn.gsq.crawler;
 
+import cn.gsq.crawler.annotation.ValueAnnotation;
+import cn.gsq.crawler.owninterface.Value;
 import cn.gsq.crawler.thread.ThreadFactory;
 import cn.gsq.utils.PathUtil2;
 import org.jsoup.Jsoup;
@@ -9,22 +11,28 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Stack;
 import java.util.concurrent.*;
 
 /**
  * @author gsq
  */
 public class Meituri {
+    @Value("path")
+    private String path;
+    @Value("count")
+    private String count;
 
     public static void main(String[] args) throws Exception {
         String pathName = "https://tjg.gzhuibei.com/a/1/";
+        ValueAnnotation.run();
         Document parse = Jsoup.parse(new URL(PathUtil2.PATH), (int) TimeUnit.HOURS.toMillis(3));
         Elements as = parse.select("p.biaoti>a");
         Elements shuliangList = parse.select("span.shuliang");
         //0-20
         //20-40
         ThreadPoolExecutor pool = ThreadFactory.getThreadPool();
-        for (int i = 0; i < PathUtil2.COUNT; i++) {
+        for (int i = 0; i < Integer.parseInt(PathUtil2.COUNT); i++) {
             getPath(pathName, as, shuliangList, pool, i);
         }
         pool.shutdown();
@@ -42,7 +50,7 @@ public class Meituri {
         System.out.println(substring);
         String s = "https://www.tujigu.com/a/";
         url = new URL(s + substring);
-         Document document = Jsoup.parse(url, (int) TimeUnit.HOURS.toMillis(3));
+        Document document = Jsoup.parse(url, (int) TimeUnit.HOURS.toMillis(3));
         Elements h1 = document.select("h1");
 
 
