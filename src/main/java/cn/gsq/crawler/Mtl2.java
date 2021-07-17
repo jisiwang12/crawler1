@@ -35,7 +35,7 @@ public class Mtl2 {
             Element element = h1.get(0);
             String text = element.text();
 
-            new DownImg(pathName + substring + "/", text + "/",1).start();
+            //new DownImg(pathName + substring + "/", text + "/",1).start();
 
         }
 

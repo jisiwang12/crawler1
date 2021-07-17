@@ -32,7 +32,7 @@ public class Mtl  {
             Elements h1 = document.select("h1");
             Element element = h1.get(0);
             String text = element.text();
-            new DownImg(pathName + substring + "/", text + "/",1).start();
+            //new DownImg(pathName + substring + "/", text + "/",1).start();
             Thread.sleep(1000);
 
         }
