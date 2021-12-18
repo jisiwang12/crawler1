@@ -26,7 +26,7 @@ public class ValueAnnotation {
                 String value = field.getAnnotation(Value.class).value();
                 String key = PropertiesUtils.getKey(value);
                 try {
-                    // 将配置文件中的赋值给PathUtil2中的属性
+                    // 将配置文件中值的赋值给PathUtil2中的属性
                     field.set(null,key);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();

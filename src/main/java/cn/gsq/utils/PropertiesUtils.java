@@ -12,7 +12,8 @@ import java.util.Properties;
  */
 public class PropertiesUtils {
 
-    private PropertiesUtils() {}
+    private PropertiesUtils() {
+    }
 
     public static String getKey(String key) {
         String value = "";
@@ -20,7 +21,7 @@ public class PropertiesUtils {
         InputStream inputStream = PropertiesUtils.class.getClassLoader().getResourceAsStream("config.properties");
         try {
             properties.load(inputStream);
-             value= properties.getProperty(key);
+            value = properties.getProperty(key);
         } catch (IOException e) {
             e.printStackTrace();
         }

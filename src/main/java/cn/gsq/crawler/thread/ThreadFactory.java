@@ -1,5 +1,7 @@
 package cn.gsq.crawler.thread;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -17,19 +19,17 @@ public class ThreadFactory {
     private static final long KEEP_ALIVE_TIME = 3000;
     private static final int CAPACITY = 40;
     private static int count = 0;
-    private ThreadFactory() {
 
+    private ThreadFactory() {
     }
 
     public static ThreadPoolExecutor getThreadPool() {
-        return new ThreadPoolExecutor(CORE_POOL_SIZE, MAX_POOL_SIZE, KEEP_ALIVE_TIME, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<>(CAPACITY), new java.util.concurrent.ThreadFactory() {
-            @Override
-            public Thread newThread(Runnable r) {
-                Thread thread = new Thread(r);
-                thread.setName("下载线程" + count);
-                count++;
-                return thread;
-            }
+        return new ThreadPoolExecutor(CORE_POOL_SIZE, MAX_POOL_SIZE, KEEP_ALIVE_TIME, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<>(CAPACITY)
+                , (r) -> {
+            Thread thread = new Thread(r);
+            thread.setName("下载线程" + count);
+            count++;
+            return thread;
         });
     }
 
