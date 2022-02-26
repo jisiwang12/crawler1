@@ -1,11 +1,10 @@
 package cn.gsq.crawler.annotation;
 
 import cn.gsq.crawler.owninterface.Value;
-import cn.gsq.utils.PathUtil2;
-import cn.gsq.utils.PropertiesUtils;
+import cn.gsq.crawler.utils.PathUtil2;
+import cn.gsq.crawler.utils.PropertiesUtils;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 
 /**
  * @author qsefr

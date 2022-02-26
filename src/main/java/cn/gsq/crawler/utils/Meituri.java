@@ -1,8 +1,5 @@
-package cn.gsq.crawler;
+package cn.gsq.crawler.utils;
 
-import cn.gsq.crawler.annotation.ValueAnnotation;
-import cn.gsq.crawler.thread.ThreadFactory;
-import cn.gsq.utils.PathUtil2;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -17,17 +14,13 @@ import java.util.concurrent.*;
  */
 public class Meituri {
 
-    public static void main(String[] args) throws Exception {
-        ThreadPoolExecutor pool = ThreadFactory.getThreadPool();
-        ValueAnnotation.run();
-        Meituri.run(pool);
-        pool.shutdown();
-    }
+    // cookie
+    private static String cookie = "UM_distinctid=17e388968268e4-08f291879f3ba1-f791b31-1fa400-17e388968271a5e; PHPSESSID=pcedtk7uj6hinnd6ai67t33sl6; fr=tuji001_404; CNZZDATA1257039673=237528808-1641620484-https%3A%2F%2Fwww.tuji001.com%2F|1642826307; uid=313524; name=jisiwang12; leixing=0";
+
 
     public static void run(ThreadPoolExecutor pool) throws IOException {
         // 下载的图片路径前缀
         String pathName = "https://tjg.gzhuibei.com/a/1/";
-        String cookie = "UM_distinctid=17e388968268e4-08f291879f3ba1-f791b31-1fa400-17e388968271a5e; PHPSESSID=pcedtk7uj6hinnd6ai67t33sl6; fr=tuji001_404; CNZZDATA1257039673=237528808-1641620484-https%3A%2F%2Fwww.tuji001.com%2F|1642826307; uid=313524; name=jisiwang12; leixing=0";
         Document parse = Jsoup.connect(PathUtil2.PATH).cookies(Meituri.convertCookie(cookie)).get();
         Elements as = parse.select("p.biaoti>a");
         Elements shuliangList = parse.select("span.shuliang");

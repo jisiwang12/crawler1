@@ -1,12 +1,9 @@
-package cn.gsq.utils;
+package cn.gsq.crawler.utils;
 
 import cn.gsq.crawler.owninterface.Value;
 
-import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.*;
-import java.util.List;
 
 /**
  * 图片下载配置类1

@@ -1,6 +1,5 @@
 package cn.gsq;
 
-import cn.gsq.crawler.DownImg;
 import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

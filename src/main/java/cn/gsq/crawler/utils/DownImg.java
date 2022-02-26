@@ -1,9 +1,8 @@
-package cn.gsq.crawler;
+package cn.gsq.crawler.utils;
 
 
-import cn.gsq.utils.PathUtil2;
+import cn.gsq.crawler.utils.PathUtil2;
 import org.apache.commons.io.FileUtils;
-import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,13 +12,6 @@ import org.jsoup.select.Elements;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
-import java.util.stream.LongStream;
 
 public class DownImg implements Runnable {
     private String url;

@@ -1,4 +1,4 @@
-package cn.gsq.utils;
+package cn.gsq.crawler.utils;
 
 public class PathUtil {
 
