@@ -53,10 +53,10 @@ public class DownImg implements Runnable {
     }
 
     public static void main(String[] args) throws Exception {
-        int totalPage = 51;
+        int totalPage = 43;
         for (int i = 0; i < totalPage; i++) {
 
-            Document parse = Jsoup.parse(new URL("https://www.shzx.org/a/143-7868-" + i + ".html"), 100000);
+            Document parse = Jsoup.parse(new URL("https://www.shzx.org/a/143-7906-" + i + ".html"), 100000);
             Elements pics = parse.select(".picture");
             for (Element pic : pics) {
                 for (Element img : pic.select("img")) {

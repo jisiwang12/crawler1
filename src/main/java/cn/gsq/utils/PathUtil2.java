@@ -24,6 +24,9 @@ public class PathUtil2 {
     @Value("filePath")
     public static String FILEPATH;
 
+    // 当前页数
+    public static int pageCount = 2;
+
 
     public static void main(String[] args) throws NoSuchMethodException, InstantiationException, IllegalAccessException {
        /* String pathHeader = "K:\\test";

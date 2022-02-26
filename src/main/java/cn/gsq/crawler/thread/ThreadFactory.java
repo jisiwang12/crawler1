@@ -14,10 +14,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadFactory {
 
-    private static final int CORE_POOL_SIZE = 16;
+    private static final int CORE_POOL_SIZE = 30;
     private static final int MAX_POOL_SIZE = 40;
     private static final long KEEP_ALIVE_TIME = 3000;
-    private static final int CAPACITY = 40;
+    private static final int CAPACITY = 10000;
     private static int count = 0;
 
     private ThreadFactory() {
